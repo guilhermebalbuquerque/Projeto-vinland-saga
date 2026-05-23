@@ -173,3 +173,62 @@ SELECT * FROM usuario;
 SELECT * FROM resultado_quiz;
 
 SELECT id_usuario, nome, email, fk_personagem, fk_personalidade FROM usuario WHERE email = 'guilherme@gmail.com' AND senha = '123456';
+
+-- pra ver o total de usuarios
+
+SELECT COUNT(id_usuario) AS total_jogadores
+FROM usuario;
+
+
+-- total de qyuz===uiz
+
+SELECT COUNT(id_resultado) AS total_quizzes
+FROM resultado_quiz;
+
+
+-- pra ver a personalidade mais vista
+
+SELECT 
+    personalidade.nome AS personalidade,
+    COUNT(resultado_quiz.id_resultado) AS quantidade
+FROM resultado_quiz
+JOIN personalidade
+    ON resultado_quiz.fk_personalidade = personalidade.id_personalidade
+GROUP BY personalidade.nome
+ORDER BY quantidade DESC
+LIMIT 1;
+
+
+-- personagem mais escolhido
+
+SELECT 
+    personagem.nome AS personagem,
+    COUNT(resultado_quiz.id_resultado) AS quantidade
+FROM resultado_quiz
+JOIN personagem
+    ON resultado_quiz.fk_personagem = personagem.id_personagem
+GROUP BY personagem.nome
+ORDER BY quantidade DESC
+LIMIT 1;
+
+
+-- grafico para ver os personagens mais escolhidos
+
+SELECT 
+    DATE(data_resultado) AS data_quiz,
+    COUNT(id_resultado) AS total_participacoes
+FROM resultado_quiz
+GROUP BY DATE(data_resultado)
+ORDER BY data_quiz ASC;
+
+
+-- gráfico para ver o personagens escolhido
+
+SELECT 
+    personagem.nome AS personagem,
+    COUNT(resultado_quiz.id_resultado) AS total_escolhas
+FROM resultado_quiz
+JOIN personagem
+    ON resultado_quiz.fk_personagem = personagem.id_personagem
+GROUP BY personagem.nome
+ORDER BY total_escolhas DESC;
