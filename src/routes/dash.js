@@ -3,8 +3,8 @@ var router = express.Router();
 
 var dashController = require("../controllers/dashboardController");
 
-router.post("/receberResultados", function (req, res) {
-    dashController.receberResultados(req, res);
+router.post("/receberDados", function (req, res) {
+    dashController.receberDados(req, res);
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 var dashModel = require("../models/dashModel");
 
-function receberResultados(req, res) {
+function receberDados(req, res) {
 
     let dadosDashboard = {};
 
@@ -50,5 +50,5 @@ function receberResultados(req, res) {
 }
 
 module.exports = {
-    receberResultados
+    receberDados
 };
