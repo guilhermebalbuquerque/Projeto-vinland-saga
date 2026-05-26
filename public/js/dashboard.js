@@ -22,7 +22,7 @@ function pushandoDados() {
 
             criarGraficoQuantidadeQuiz(dados.participacoes);
 
-            criarGraficoPersonagem(personagens, quantidade);
+            criarGraficoPersonagem(nomePersonagem, quantidade);
         })
 
 } window.onload = pushandoDados;
@@ -34,7 +34,7 @@ let resposta = "";
 
 
 let graficoQuiz = null;
-function criarGraficoQuantidadeQuiz(quantidade) {
+function criarGraficoQuantidadeQuiz(participacoes) {
 
     let datas = [];
     let totais = [];
@@ -63,9 +63,22 @@ function criarGraficoQuantidadeQuiz(quantidade) {
 let graficoBarra = null
 
 function criargraficoBarra(nome, quantidade) {
+    if (graficoBarra != null) {
+        graficoBarra.destroy();
+    }
 
+    graficoBarra = new Chart(document.getElementById("graficoBarra").getContext("2d"), {
+        type: "bar",
+        data: {
+            labels: nome,
+            datasets: [{
+                label: "Personagens escolhidos",
+                data: quantidade,
+                backgroundColor: "#c8a45d"
+            }]
+        }
+    })
 }
-
 
 
 

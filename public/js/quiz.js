@@ -523,7 +523,7 @@ function finalizarQuiz() {
 
         body: JSON.stringify({
 
-            idUsuarioServer: sessionStorage.ID_USUARIO,
+            id_usuarioServer: sessionStorage.ID_USUARIO,
 
             idQuizServer: id_quiz,
 

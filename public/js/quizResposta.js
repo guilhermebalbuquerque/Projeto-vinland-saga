@@ -1,13 +1,13 @@
 function obterDados() {
-    var idUsuario = sessionStorage.ID_USUARIO;
+    var id_usuario = sessionStorage.ID_USUARIO;
 
-     if (!idUsuario) {
+     if (!id_usuario) {
          alert("Você precisa estar logado para ver o resultado!");
          window.location = "../login.html";
         return;
      }
 
-    fetch(`/quiz/resultado/${idUsuario}`)
+    fetch(`/quiz/resultado/${id_usuario}`)
         .then(function (resposta) {
 
             

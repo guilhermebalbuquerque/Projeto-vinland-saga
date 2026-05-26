@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function cadastrarQuiz(
-    idUsuario,
+    id_usuario,
     idQuiz,
     idPersonagem,
     idPersonalidade
@@ -16,7 +16,7 @@ function cadastrarQuiz(
             fk_personagem,
             fk_personalidade
         ) VALUES (
-            ${idUsuario},
+            ${id_usuario},
             ${idQuiz},
             ${idPersonagem},
             ${idPersonalidade}
@@ -28,9 +28,9 @@ function cadastrarQuiz(
     return database.executar(instrucaoSql);
 }
 
-function buscarResultado(idUsuario) {
+function buscarResultado(id_usuario) {
 
-    console.log(">> Buscando resultado do quiz do usuário: ", idUsuario);
+    console.log(">> Buscando resultado do quiz do usuário: ", id_usuario);
     var instrucaoSql = `
         SELECT
             rq.id_resultado,
@@ -44,7 +44,7 @@ function buscarResultado(idUsuario) {
                 ON rq.fk_personagem = p.id_personagem
              JOIN personalidade pe
                 ON rq.fk_personalidade = pe.id_personalidade
-        WHERE rq.fk_usuario = ${idUsuario}
+        WHERE rq.fk_usuario = ${id_usuario}
         ORDER BY rq.data_resultado DESC
         LIMIT 1;
     `;

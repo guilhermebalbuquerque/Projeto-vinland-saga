@@ -7,7 +7,7 @@ router.post("/salvarResultado", function(req, res) {
     quizRespostaController.cadastrarQuiz(req, res);
 });
 
-router.get("/resultado/:idUsuario", function(req, res) {
+router.get("/resultado/:id_usuario", function(req, res) {
     quizRespostaController.buscarResultado(req, res);
 });
 

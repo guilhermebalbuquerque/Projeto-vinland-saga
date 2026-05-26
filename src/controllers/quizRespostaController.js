@@ -2,13 +2,13 @@ var quizRespostaModel = require("../models/quizModel");
 
 function cadastrarQuiz(req, res) {
 
-    var idUsuario = req.body.idUsuarioServer;
+    var id_usuario = req.body.id_usuarioServer;
     var idQuiz = req.body.idQuizServer;
     var idPersonagem = req.body.personagemServer;
     var idPersonalidade = req.body.personalidadeServer;
 
-    if (idUsuario == undefined) {
-        res.status(400).send("idUsuario está undefined!");
+    if (id_usuario == undefined) {
+        res.status(400).send("id_usuario está undefined!");
     } else if (idQuiz == undefined) {
         res.status(400).send("idQuiz está undefined!");
     } else if (idPersonagem == undefined) {
@@ -16,7 +16,7 @@ function cadastrarQuiz(req, res) {
     } else if (idPersonalidade == undefined) {
         res.status(400).send("idPersonalidade está undefined!");
     } else {
-        quizRespostaModel.cadastrarQuiz(idUsuario, idQuiz, idPersonagem, idPersonalidade)
+        quizRespostaModel.cadastrarQuiz(id_usuario, idQuiz, idPersonagem, idPersonalidade)
             .then(function (resultado) {
                 console.log(resultado);
                 res.json(resultado);
@@ -31,12 +31,12 @@ function cadastrarQuiz(req, res) {
 
 function buscarResultado(req, res) {
 
-    var idUsuario = req.params.idUsuario;
+    var id_usuario = req.params.id_usuario;
 
-    console.log("Buscando resultado do quiz do usuário: ", idUsuario);
+    console.log("Buscando resultado do quiz do usuário: ", id_usuario);
 
    
-    quizRespostaModel.buscarResultado(idUsuario)
+    quizRespostaModel.buscarResultado(id_usuario)
         .then(function (resultado) {
 
             
