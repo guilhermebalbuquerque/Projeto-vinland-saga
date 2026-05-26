@@ -6,14 +6,65 @@ function pushandoDados() {
             return resposta.json();
         })
         .then(function (dados) {
-            let usuarios = dados.buscarTotalUsuarios;
-            document.getElementById("kpi_jogadores").innerHTML = dados.total_jogadores;
-            document.getElementById("kpi_quizzes").innerHTML = dados.total_quizzes;
-            document.getElementById("kpi_personalidade_vista").innerHTML = dados.personalidade[0].personalidade;
-            document.getElementById("kpi_personagem").innerHTML = dados.personagem[0].personagem;
+            let usuarios = dados.totalUsuarios;
+            document.getElementById("kpi_jogadores").innerHTML = dados.totalUsuarios[0].total_jogadores;
+            document.getElementById("kpi_quizzes").innerHTML = dados.totalQuizRespondidos[0].total_quizzes;
+            document.getElementById("kpi_personalidade_vista").innerHTML = `${(dados.personalidades[0].personalidade / dados.totalQuizRespondidos[0].total_quizzes).toFixed(0)}%`;
+            document.getElementById("kpi_personagem").innerHTML = dados.personagens[0].personagem;
+
+            let nomePersonagem = [];
+            let quantidade = [];
+
+            for (let i = 0; i < dados.personagens.length; i++) {
+                nomePersonagem.push(dados.personagens[i].personagem);
+                quantidade.push(dados.personagens[i].quantidade);
+            }
+
+            criarGraficoQuantidadeQuiz(dados.participacoes);
+
+            criarGraficoPersonagem(personagens, quantidade);
         })
+
+} window.onload = pushandoDados;
+
+let personagens = [];
+let usuarios = [];
+let resposta = "";
+
+
+
+let graficoQuiz = null;
+function criarGraficoQuantidadeQuiz(quantidade) {
+
+    let datas = [];
+    let totais = [];
+
+    for (let i = 0; i < participacoes.length; i++) {
+        datas.push(participacoes[i].data_quiz);
+        totais.push(participacoes[i].total_participacoes);
     }
 
+    if (graficoQuiz != null) {
+        graficoQuiz.destroy();
+    }
+
+    graficoQuiz = new Chart(document.getElementById("graficoLinha").getContext("2d"), {
+        type: "line",
+        data: {
+            labels: datas,
+            datasets: [{
+                data: totais,
+                backgroundColor: "#c8a45d"
+            }]
+        },
+    })
+}
+
+let graficoBarra = null
+
+function criargraficoBarra(nome, quantidade) {
+
+}
 
 
 

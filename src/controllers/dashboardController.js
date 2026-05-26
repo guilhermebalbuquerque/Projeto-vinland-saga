@@ -1,4 +1,4 @@
-var dashModel = require("../models/dashModel");
+var dashModel = require("../models/dashboardModel");
 
 function receberDados(req, res) {
 
@@ -14,23 +14,31 @@ function receberDados(req, res) {
         })
 
         .then(function (resultadoTotalQuizRespondidos) {
-
-            // Salva a quantidade de quizzes respondidos
+            // salva a quantidade de quiz respondidos
             dadosDashboard.totalQuizRespondidos = resultadoTotalQuizRespondidos;
+
+            return dashModel.buscarGraficoParticipacoes();
+        })
+
+        .then(function (resultadoParticipacoes) {
+
+            dadosDashboard.participacoes = resultadoParticipacoes;
 
             return dashModel.buscarPersonalidade();
         })
 
         .then(function (resultadoPersonalidades) {
+
             dadosDashboard.personalidades = resultadoPersonalidades;
 
             return dashModel.buscarPersonagem();
         })
 
         .then(function (resultadoPersonagens) {
+
             dadosDashboard.personagens = resultadoPersonagens;
 
-            // Retorna tudo em json
+            // retorna o json
             res.status(200).json(dadosDashboard);
         })
 
@@ -38,14 +46,7 @@ function receberDados(req, res) {
 
             console.log("Erro ao buscar dados da dashboard:", erro);
 
-            console.log(
-                "\nHouve um erro ao buscar os resultados da dashboard! Erro:",
-                erro.sqlMessage
-            );
-
-            res.status(500).json({
-                erro: erro.sqlMessage
-            });
+            res.status(500).json({ erro: erro.sqlMessage });
         });
 }
 
