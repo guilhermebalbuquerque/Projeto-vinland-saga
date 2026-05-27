@@ -1,24 +1,24 @@
 let personagens = {
     Canute: "Frio, inteligente e ambicioso.",
-    
+
     Bjorn: "Leal, impulsivo e guerreiro.",
-    
+
     Thorkell: "Ama batalhas e desafios.",
-    
+
     Askeladd: "Estratégico e manipulador.",
-    
+
     Thors: "Pacífico, sábio e honrado.",
-    
+
     Thorgil: "Brutal e apaixonado pela guerra.",
-    
+
     Thorffin: "Busca paz e amadurecimento.",
-    
+
     Olmar: "Inseguro e sonhador.",
-    
+
     Snake: "Calmo, protetor e habilidoso.",
-    
+
     Arnheid: "Gentil e resiliente.",
-    
+
     Einar: "Bondoso, trabalhador e otimista."
 };
 
@@ -86,32 +86,32 @@ let personalidades = {
 };
 
 let id_personagem = {
-    'Canute':   1,
-    'Bjorn':    2,
+    'Canute': 1,
+    'Bjorn': 2,
     'Thorkell': 3,
     'Askeladd': 4,
-    'Thors':    5,
-    'Thorgil':  6,
+    'Thors': 5,
+    'Thorgil': 6,
     'Thorffin': 7,
-    'Olmar':    8,
-    'Snake':    9,
-    'Arnheid':  10,
-    'Einar':    11
+    'Olmar': 8,
+    'Snake': 9,
+    'Arnheid': 10,
+    'Einar': 11
 };
 
 let id_personalidade = {
-    'Filosofia de paz e empatia':   1,
-    'Honra e autocontrole':         2,
-    'Reflexão e maturidade':        3,
-    'Resiliência':                  4,
-    'Sabedoria estratégica':        5,
-    'Ambição controlada':           6,
-    'Natureza protetora':           7,
-    'Espírito livre':               8,
-    'Superação pessoal':            9,
+    'Filosofia de paz e empatia': 1,
+    'Honra e autocontrole': 2,
+    'Reflexão e maturidade': 3,
+    'Resiliência': 4,
+    'Sabedoria estratégica': 5,
+    'Ambição controlada': 6,
+    'Natureza protetora': 7,
+    'Espírito livre': 8,
+    'Superação pessoal': 9,
     'Liderança e responsabilidade': 10,
-    'Humanidade e dor emocional':   11,
-    'Mentalidade pacífica':         12
+    'Humanidade e dor emocional': 11,
+    'Mentalidade pacífica': 12
 };
 
 const pesosPerguntas = [
@@ -144,7 +144,7 @@ const perguntasQuiz = [
         alternativaD: "Ignora e segue em frente",
 
         resultado: [
-            ["Thors",    "Filosofia de paz e empatia"],
+            ["Thors", "Filosofia de paz e empatia"],
             ["Thorkell", "Ambição controlada"],
             ["Askeladd", "Sabedoria estratégica"],
             ["Thorffin", "Reflexão e maturidade"]
@@ -160,10 +160,10 @@ const perguntasQuiz = [
         alternativaD: "Honra",
 
         resultado: [
-            ["Arnheid",  "Natureza protetora"],
-            ["Bjorn",    "Superação pessoal"],
-            ["Canute",   "Liderança e responsabilidade"],
-            ["Snake",    "Honra e autocontrole"]
+            ["Arnheid", "Natureza protetora"],
+            ["Bjorn", "Superação pessoal"],
+            ["Canute", "Liderança e responsabilidade"],
+            ["Snake", "Honra e autocontrole"]
         ]
     },
 
@@ -177,9 +177,9 @@ const perguntasQuiz = [
 
         resultado: [
             ["Thorffin", "Mentalidade pacífica"],
-            ["Thorgil",  "Ambição controlada"],
+            ["Thorgil", "Ambição controlada"],
             ["Askeladd", "Reflexão e maturidade"],
-            ["Einar",    "Espírito livre"]
+            ["Einar", "Espírito livre"]
         ]
     },
 
@@ -192,9 +192,9 @@ const perguntasQuiz = [
         alternativaD: "Usa a dor para evoluir",
 
         resultado: [
-            ["Snake",    "Honra e autocontrole"],
+            ["Snake", "Honra e autocontrole"],
             ["Thorkell", "Superação pessoal"],
-            ["Canute",   "Sabedoria estratégica"],
+            ["Canute", "Sabedoria estratégica"],
             ["Thorffin", "Humanidade e dor emocional"]
         ]
     },
@@ -208,8 +208,8 @@ const perguntasQuiz = [
         alternativaD: "A paz exige coragem",
 
         resultado: [
-            ["Thors",    "Filosofia de paz e empatia"],
-            ["Thorgil",  "Ambição controlada"],
+            ["Thors", "Filosofia de paz e empatia"],
+            ["Thorgil", "Ambição controlada"],
             ["Askeladd", "Sabedoria estratégica"],
             ["Thorffin", "Mentalidade pacífica"]
         ]
@@ -224,10 +224,10 @@ const perguntasQuiz = [
         alternativaD: "Inspirador",
 
         resultado: [
-            ["Thors",    "Mentalidade pacífica"],
-            ["Bjorn",    "Superação pessoal"],
+            ["Thors", "Mentalidade pacífica"],
+            ["Bjorn", "Superação pessoal"],
             ["Askeladd", "Sabedoria estratégica"],
-            ["Canute",   "Liderança e responsabilidade"]
+            ["Canute", "Liderança e responsabilidade"]
         ]
     },
 
@@ -240,10 +240,10 @@ const perguntasQuiz = [
         alternativaD: "Protege acima de tudo",
 
         resultado: [
-            ["Arnheid",  "Natureza protetora"],
-            ["Snake",    "Honra e autocontrole"],
-            ["Canute",   "Reflexão e maturidade"],
-            ["Thors",    "Natureza protetora"]
+            ["Arnheid", "Natureza protetora"],
+            ["Snake", "Honra e autocontrole"],
+            ["Canute", "Reflexão e maturidade"],
+            ["Thors", "Natureza protetora"]
         ]
     },
 
@@ -256,9 +256,9 @@ const perguntasQuiz = [
         alternativaD: "Uma jornada pelo mundo",
 
         resultado: [
-            ["Einar",    "Mentalidade pacífica"],
+            ["Einar", "Mentalidade pacífica"],
             ["Thorkell", "Superação pessoal"],
-            ["Canute",   "Liderança e responsabilidade"],
+            ["Canute", "Liderança e responsabilidade"],
             ["Thorffin", "Espírito livre"]
         ]
     },
@@ -273,9 +273,9 @@ const perguntasQuiz = [
 
         resultado: [
             ["Thorffin", "Reflexão e maturidade"],
-            ["Thorgil",  "Ambição controlada"],
-            ["Snake",    "Honra e autocontrole"],
-            ["Olmar",    "Humanidade e dor emocional"]
+            ["Thorgil", "Ambição controlada"],
+            ["Snake", "Honra e autocontrole"],
+            ["Olmar", "Humanidade e dor emocional"]
         ]
     },
 
@@ -288,10 +288,10 @@ const perguntasQuiz = [
         alternativaD: "Valorizar a liberdade",
 
         resultado: [
-            ["Thors",    "Natureza protetora"],
-            ["Canute",   "Liderança e responsabilidade"],
+            ["Thors", "Natureza protetora"],
+            ["Canute", "Liderança e responsabilidade"],
             ["Askeladd", "Sabedoria estratégica"],
-            ["Einar",    "Espírito livre"]
+            ["Einar", "Espírito livre"]
         ]
     },
 
@@ -304,7 +304,7 @@ const perguntasQuiz = [
         alternativaD: "Falsidade",
 
         resultado: [
-            ["Arnheid",  "Filosofia de paz e empatia"],
+            ["Arnheid", "Filosofia de paz e empatia"],
             ["Thorkell", "Superação pessoal"],
             ["Thorffin", "Reflexão e maturidade"],
             ["Askeladd", "Sabedoria estratégica"]
@@ -320,10 +320,10 @@ const perguntasQuiz = [
         alternativaD: "Quem diverte todo mundo",
 
         resultado: [
-            ["Snake",    "Reflexão e maturidade"],
-            ["Canute",   "Liderança e responsabilidade"],
-            ["Thors",    "Natureza protetora"],
-            ["Bjorn",    "Espírito livre"]
+            ["Snake", "Reflexão e maturidade"],
+            ["Canute", "Liderança e responsabilidade"],
+            ["Thors", "Natureza protetora"],
+            ["Bjorn", "Espírito livre"]
         ]
     },
 
@@ -337,9 +337,9 @@ const perguntasQuiz = [
 
         resultado: [
             ["Thorffin", "Mentalidade pacífica"],
-            ["Thorgil",  "Resiliência"],
+            ["Thorgil", "Resiliência"],
             ["Askeladd", "Sabedoria estratégica"],
-            ["Olmar",    "Humanidade e dor emocional"]
+            ["Olmar", "Humanidade e dor emocional"]
         ]
     },
 
@@ -354,8 +354,8 @@ const perguntasQuiz = [
         resultado: [
             ["Thorffin", "Filosofia de paz e empatia"],
             ["Thorkell", "Ambição controlada"],
-            ["Canute",   "Liderança e responsabilidade"],
-            ["Arnheid",  "Natureza protetora"]
+            ["Canute", "Liderança e responsabilidade"],
+            ["Arnheid", "Natureza protetora"]
         ]
     },
 
@@ -368,10 +368,10 @@ const perguntasQuiz = [
         alternativaD: "Persistência",
 
         resultado: [
-            ["Arnheid",  "Filosofia de paz e empatia"],
+            ["Arnheid", "Filosofia de paz e empatia"],
             ["Thorffin", "Superação pessoal"],
             ["Askeladd", "Sabedoria estratégica"],
-            ["Einar",    "Resiliência"]
+            ["Einar", "Resiliência"]
         ]
     },
 
@@ -384,10 +384,10 @@ const perguntasQuiz = [
         alternativaD: "Defender os outros",
 
         resultado: [
-            ["Snake",    "Honra e autocontrole"],
+            ["Snake", "Honra e autocontrole"],
             ["Thorkell", "Resiliência"],
-            ["Canute",   "Liderança e responsabilidade"],
-            ["Thors",    "Natureza protetora"]
+            ["Canute", "Liderança e responsabilidade"],
+            ["Thors", "Natureza protetora"]
         ]
     }
 ];
@@ -466,7 +466,7 @@ function avancarPergunta() {
 
     personagens[personagemEscolhido] += pesoPergunta;
 
-    personalidades[ personalidadeEscolhida].pontos += pesoPergunta;
+    personalidades[personalidadeEscolhida].pontos += pesoPergunta;
 
     indicePerguntaAtual++;
 
@@ -495,7 +495,7 @@ function finalizarQuiz() {
 
     for (let i = 1; i < nomesPersonalidades.length; i++) {
 
-        if (personalidades[nomesPersonalidades[i]].pontos >personalidades[personalidadeFinal].pontos) {
+        if (personalidades[nomesPersonalidades[i]].pontos > personalidades[personalidadeFinal].pontos) {
 
             personalidadeFinal = nomesPersonalidades[i];
         }
@@ -552,4 +552,7 @@ function finalizarQuiz() {
         .catch(function (erro) {
             console.log(erro);
         });
+
+    console.log("Personagem final:", personagemFinal);
+    console.log("ID personagem:", idPersonagemFinal);
 }

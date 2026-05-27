@@ -36,7 +36,7 @@ function buscarResultado(id_usuario) {
             rq.id_resultado,
             rq.data_resultado,
             p.nome  AS personagem,
-            p.descricao_personagem AS descricaoPersonagem,
+            p.descricao AS descricaoPersonagem,
             pe.nome AS personalidade,
             pe.descricao
         FROM resultado_quiz rq

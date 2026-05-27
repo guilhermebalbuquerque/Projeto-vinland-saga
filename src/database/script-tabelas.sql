@@ -19,7 +19,7 @@ CREATE TABLE personagem (
     id_personagem INT PRIMARY KEY AUTO_INCREMENT,
 
     nome VARCHAR(45), 
-    descricao_personagem VARCHAR(300)
+    descricao VARCHAR(300)
 );
 
 

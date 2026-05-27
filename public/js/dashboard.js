@@ -1,3 +1,5 @@
+const { options } = require("nodemon/lib/config");
+
 function pushandoDados() {
     fetch("/dash/receberDados", {
         headers: { "Content-Type": "application/json" }
@@ -6,10 +8,9 @@ function pushandoDados() {
             return resposta.json();
         })
         .then(function (dados) {
-            let usuarios = dados.totalUsuarios;
             document.getElementById("kpi_jogadores").innerHTML = dados.totalUsuarios[0].total_jogadores;
             document.getElementById("kpi_quizzes").innerHTML = dados.totalQuizRespondidos[0].total_quizzes;
-            document.getElementById("kpi_personalidade_vista").innerHTML = `${(dados.personalidades[0].personalidade / dados.totalQuizRespondidos[0].total_quizzes).toFixed(0)}%`;
+            document.getElementById("kpi_personalidade_vista").innerHTML = dados.personalidades[0].personalidade;
             document.getElementById("kpi_personagem").innerHTML = dados.personagens[0].personagem;
 
             let nomePersonagem = [];
@@ -21,19 +22,14 @@ function pushandoDados() {
             }
 
             criarGraficoQuantidadeQuiz(dados.participacoes);
-
-            criarGraficoPersonagem(nomePersonagem, quantidade);
+            criargraficoBarra(nomePersonagem, quantidade);
         })
+}
 
-} window.onload = pushandoDados;
-
-let personagens = [];
-let usuarios = [];
-let resposta = "";
-
-
+window.onload = pushandoDados;
 
 let graficoQuiz = null;
+
 function criarGraficoQuantidadeQuiz(participacoes) {
 
     let datas = [];
@@ -53,14 +49,19 @@ function criarGraficoQuantidadeQuiz(participacoes) {
         data: {
             labels: datas,
             datasets: [{
+                label: "Participações",
                 data: totais,
-                backgroundColor: "#c8a45d"
+                backgroundColor: "#c8a45d",
+                borderColor: "#c8a45d"
             }]
         },
+        options: {
+            responsive: true
+        }
     })
 }
 
-let graficoBarra = null
+let graficoBarra = null;
 
 function criargraficoBarra(nome, quantidade) {
     if (graficoBarra != null) {
@@ -74,12 +75,14 @@ function criargraficoBarra(nome, quantidade) {
             datasets: [{
                 label: "Personagens escolhidos",
                 data: quantidade,
-                backgroundColor: "#c8a45d"
+                backgroundColor: "#aa0000"
             }]
+        },
+        options: {
+            responsive: true
         }
     })
 }
-
 
 
 

@@ -35,15 +35,15 @@ function buscarResultado(req, res) {
 
     console.log("Buscando resultado do quiz do usuário: ", id_usuario);
 
-   
+
     quizRespostaModel.buscarResultado(id_usuario)
         .then(function (resultado) {
 
-            
+
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
 
-          
+
             } else {
                 res.status(204).send("Nenhum resultado encontrado!");
             }
