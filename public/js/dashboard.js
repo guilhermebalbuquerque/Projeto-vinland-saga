@@ -1,5 +1,3 @@
-const { options } = require("nodemon/lib/config");
-
 function pushandoDados() {
     fetch("/dash/receberDados", {
         headers: { "Content-Type": "application/json" }
@@ -16,9 +14,9 @@ function pushandoDados() {
             let nomePersonagem = [];
             let quantidade = [];
 
-            for (let i = 0; i < dados.personagens.length; i++) {
-                nomePersonagem.push(dados.personagens[i].personagem);
-                quantidade.push(dados.personagens[i].quantidade);
+            for (let i = 0; i < dados.graficoPersonagens.length; i++) {
+                nomePersonagem.push(dados.graficoPersonagens[i].personagem);
+                quantidade.push(dados.graficoPersonagens[i].total_escolhas);
             }
 
             criarGraficoQuantidadeQuiz(dados.participacoes);

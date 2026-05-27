@@ -49,17 +49,15 @@ function buscarPersonagem() {
 
     return database.executar(instrucaoSql);
 }
-
 function buscarGraficoParticipacoes() {
     var instrucaoSql = `
         SELECT 
-            DATE(data_resultado) AS data_quiz,
+            DATE_FORMAT(data_resultado, '%d/%m %H:%i') AS data_quiz,
             COUNT(id_resultado) AS total_participacoes
         FROM resultado_quiz
-        GROUP BY DATE(data_resultado)
-        ORDER BY data_quiz ASC;
+        GROUP BY DATE_FORMAT(data_resultado, '%d/%m %H:%i')
+        ORDER BY MIN(data_resultado) ASC;
     `;
-
     return database.executar(instrucaoSql);
 }
 

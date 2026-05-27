@@ -33,12 +33,17 @@ function receberDados(req, res) {
 
             return dashModel.buscarPersonagem();
         })
-
         .then(function (resultadoPersonagens) {
 
             dadosDashboard.personagens = resultadoPersonagens;
 
-            // retorna o json
+            return dashModel.buscarGraficoPersonagens();
+        })
+
+        .then(function (resultadoGraficoPersonagens) {
+
+            dadosDashboard.graficoPersonagens = resultadoGraficoPersonagens;
+
             res.status(200).json(dadosDashboard);
         })
 

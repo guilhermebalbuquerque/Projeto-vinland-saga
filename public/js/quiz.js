@@ -1,25 +1,51 @@
 let personagens = {
-    Canute: "Frio, inteligente e ambicioso.",
+    Canute:   0,
+    Bjorn:    0,
+    Thorkell: 0,
+    Askeladd: 0,
+    Thors:    0,
+    Thorgil:  0,
+    Thorffin: 0,
+    Olmar:    0,
+    Snake:    0,
+    Arnheid:  0,
+    Einar:    0
+};
 
-    Bjorn: "Leal, impulsivo e guerreiro.",
-
-    Thorkell: "Ama batalhas e desafios.",
-
-    Askeladd: "Estratégico e manipulador.",
-
-    Thors: "Pacífico, sábio e honrado.",
-
-    Thorgil: "Brutal e apaixonado pela guerra.",
-
-    Thorffin: "Busca paz e amadurecimento.",
-
-    Olmar: "Inseguro e sonhador.",
-
-    Snake: "Calmo, protetor e habilidoso.",
-
-    Arnheid: "Gentil e resiliente.",
-
-    Einar: "Bondoso, trabalhador e otimista."
+let dadosPersonagens = {
+    Canute: {
+        descricao: "Frio, inteligente e ambicioso. Você transforma dor em estratégia e carrega o peso das suas decisões sozinho.",
+    },
+    Bjorn: {
+        descricao: "Leal e impulsivo, você age pelo coração. Sua força está na devoção que tem pelas pessoas que ama.",
+    },
+    Thorkell: {
+        descricao: "Você vive para os desafios. Onde outros veem perigo, você vê oportunidade de provar do que é capaz.",
+    },
+    Askeladd: {
+        descricao: "Estratégico e calculista, você raramente age por impulso. Cada movimento é pensado com antecedência.",
+    },
+    Thors: {
+        descricao: "Pacífico e sábio, você acredita que a verdadeira força está em proteger, não em destruir.",
+    },
+    Thorgil: {
+        descricao: "Apaixonado e intenso, você não conhece meio-termo. Quando decide algo, vai até o fim sem olhar para trás.",
+    },
+    Thorffin: {
+        descricao: "Você carrega cicatrizes do passado, mas aprendeu com elas. Sua jornada é de superação e busca por paz.",
+    },
+    Olmar: {
+        descricao: "Sonhador e idealista, você ainda está descobrindo quem é. Sua maior batalha é contra as suas próprias dúvidas.",
+    },
+    Snake: {
+        descricao: "Calmo e observador, você age quando precisa. Sua lealdade é silenciosa mas inabalável.",
+    },
+    Arnheid: {
+        descricao: "Gentil e resiliente, você suporta mais do que aparenta. Sua força está na compaixão que sente pelos outros.",
+    },
+    Einar: {
+        descricao: "Bondoso e trabalhador, você acredita que dias melhores são construídos com esforço e esperança.",
+    }
 };
 
 let personalidades = {
@@ -476,83 +502,51 @@ function avancarPergunta() {
 function finalizarQuiz() {
 
     let nomesPersonagens = Object.keys(personagens);
-
     let personagemFinal = nomesPersonagens[0];
 
-    let descPersonagemFinal = nomesPersonagens[1];
-
     for (let i = 1; i < nomesPersonagens.length; i++) {
-
         if (personagens[nomesPersonagens[i]] > personagens[personagemFinal]) {
-
             personagemFinal = nomesPersonagens[i];
         }
     }
 
     let nomesPersonalidades = Object.keys(personalidades);
-
     let personalidadeFinal = nomesPersonalidades[0];
 
     for (let i = 1; i < nomesPersonalidades.length; i++) {
-
         if (personalidades[nomesPersonalidades[i]].pontos > personalidades[personalidadeFinal].pontos) {
-
             personalidadeFinal = nomesPersonalidades[i];
         }
     }
 
-    console.log(sessionStorage.ID_USUARIO);
-
-    let idPersonagemFinal = id_personagem[personagemFinal];
-
+    let idPersonagemFinal    = id_personagem[personagemFinal];
     let idPersonalidadeFinal = id_personalidade[personalidadeFinal];
 
-    sessionStorage.PERSONAGEM_FINAL = personagemFinal;
-
+    sessionStorage.PERSONAGEM_FINAL    = personagemFinal;
     sessionStorage.PERSONALIDADE_FINAL = personalidadeFinal;
-
-    sessionStorage.FRASE_FINAL = personalidades[personalidadeFinal].frase;
+    sessionStorage.FRASE_FINAL         = personalidades[personalidadeFinal].frase;
+    sessionStorage.DESCRICAO_PERSONAGEM = dadosPersonagens[personagemFinal].descricao; 
 
     fetch("/quiz/salvarResultado", {
-
         method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-
-            id_usuarioServer: sessionStorage.ID_USUARIO,
-
-            idQuizServer: id_quiz,
-
-            personagemServer: idPersonagemFinal,
-
-            personagemDescServer: descPersonagemFinal,
-
+            id_usuarioServer:    sessionStorage.ID_USUARIO,
+            idQuizServer:        id_quiz,
+            personagemServer:    idPersonagemFinal,
             personalidadeServer: idPersonalidadeFinal
         })
     })
-
-        .then(function (resposta) {
-
-            if (resposta.ok) {
-
-                setTimeout(function () {
-                    window.location.href =
-                        "./quizResposta.html";
-                }, 3000);
-
-            } else {
-                alert("Erro ao salvar resultado.");
-            }
-        })
-
-        .catch(function (erro) {
-            console.log(erro);
-        });
-
-    console.log("Personagem final:", personagemFinal);
-    console.log("ID personagem:", idPersonagemFinal);
+    .then(function (resposta) {
+        if (resposta.ok) {
+            setTimeout(function () {
+                window.location.href = "./quizResposta.html";
+            }, 2000);
+        } else {
+            alert("Erro ao salvar resultado.");
+        }
+    })
+    .catch(function (erro) {
+        console.log(erro);
+    });
 }

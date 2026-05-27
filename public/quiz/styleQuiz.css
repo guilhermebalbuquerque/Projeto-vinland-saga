@@ -11,15 +11,12 @@
   --vinland-ouro-viking: #c8a45d;
 }
 
-/* RESET */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
 
 html,
 body {
@@ -134,8 +131,7 @@ body {
 .header h1 {
   margin: 0;
 }
-
-/* QUIZ */
+*/
 
 .layout-quiz {
   width: 100%;
@@ -232,8 +228,6 @@ body {
   color: var(--cor-texto-secundario);
 }
 
-/* ALTERNATIVAS */
-
 .container-alternativas {
   width: 100%;
   max-width: 1000px;
@@ -287,8 +281,6 @@ body {
   cursor: pointer;
 }
 
-/* BOTÃO */
-
 .container-botoes-quiz {
   width: 100%;
   max-width: 1000px;
@@ -322,38 +314,8 @@ body {
   background-color: var(--vinland-sangue);
 }
 
-/* ALTERNATIVA SELECIONADA */
-
 .alternativa-selecionada {
   border: 2px solid var(--vinland-ouro-viking);
 
   background-color: rgba(200, 164, 93, 0.18);
-}
-
-/* RESPONSIVO */
-
-@media (max-width: 768px) {
-  body {
-    padding: 12px;
-  }
-
-  #containerQuiz {
-    padding: 20px;
-  }
-
-  .titulo-quiz {
-    font-size: 34px;
-  }
-
-  .pergunta-quiz {
-    font-size: 22px;
-  }
-
-  .opcao-quiz {
-    font-size: 18px;
-  }
-
-  .botao-quiz {
-    font-size: 18px;
-  }
 }
