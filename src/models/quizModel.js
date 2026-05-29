@@ -8,7 +8,7 @@ function cadastrarQuiz(
 ) {
     console.log(">> Salvando resultado do quiz...");
 
-    //autualizando resultado quiz e usuario para a pagina de resultado quiz
+    
     var instrucaoSql = `
         INSERT INTO resultado_quiz (
             fk_usuario,
