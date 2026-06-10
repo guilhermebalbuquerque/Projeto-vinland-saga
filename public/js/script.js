@@ -6,7 +6,7 @@ function verificar() {
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     if (senhaVar !== confirmacaoSenhaVar) {
-        console.log('cu de burro');
+        console.log('Os Campos devem ser iguais!');
         
         cardErro.style.display = "block";
         mensagem_erro.innerHTML = "(As senhas devem ser iguais)";
